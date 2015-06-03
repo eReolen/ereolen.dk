@@ -16,8 +16,8 @@
   <meta http-equiv="cache-control" content="no-cache, no-store">
   <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="expires" content="-1">
-  <link rel="stylesheet" type="text/css" href="<?php echo variable_get('publizon_reader_url', ''); ?>/scripts/reader-1.4.4/css">
-  <script src="<?php echo variable_get('publizon_reader_url', ''); ?>/scripts/reader-1.4.4/js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="<?php echo variable_get('publizon_reader_url', ''); ?>/scripts/reader-1.5.0/css">
+  <script src="<?php echo variable_get('publizon_reader_url', ''); ?>/scripts/reader-1.5.0/js" type="text/javascript"></script>
 </head>
 <body>
 <div
