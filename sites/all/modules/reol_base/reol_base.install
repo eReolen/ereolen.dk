@@ -319,3 +319,10 @@ function reol_base_update_7124() {
 function reol_base_update_7125() {
   module_enable(array('advagg'), TRUE);
 }
+
+/**
+ * Enable mailchimp modules.
+ */
+function reol_base_update_7126() {
+  module_enable(['mailchimp', 'mailchimp_signup', 'mailchimp_lists'], TRUE);
+}
