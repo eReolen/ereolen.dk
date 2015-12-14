@@ -27,20 +27,15 @@ function reol_help_secure_permissions($role) {
 }
 
 /**
- * Implements hook_page_alter().
+ * Implements hook_preprocess_HOOK().
  *
- * Redirect FAQ node view pages to the faq page with right hash.
+ * Alter variables to be able to create our own markup for the faq-page.
  */
-function reol_help_page_alter(&$page) {
-  $node = menu_get_object('node');
-  if ($node && $node->type == 'faq' && arg(0) == 'node' && !arg(2)) {
-    $node_wrapper = entity_metadata_wrapper('node', $node);
-    $category_tid = $node_wrapper->field_category->value()->tid;
-    // FAQ generates id in the following format:
-    // t[tid]n[nid] where tid is the category term id and
-    // nid is the FAQ node id. Redirect to show this one.
-    drupal_goto('faq-page', array(
-      'fragment' => 't' . $category_tid . 'n' . $node->nid,
-    ));
-  }
+function reol_help_preprocess_faq_category_new_page(&$variables) {
+  // We need a way to see whether or not we are at the first level. Do this
+  // using category_depth and display_header. The template will be called with
+  // category_depth = 0 even when on the page for a level down, but
+  // display_header will be false at that point. So if we are at something lower
+  // than level 0 or display_header is disabled.
+  $variables['first_level'] = $variables['category_depth'] > 0 || !$variables['display_header'];
 }
