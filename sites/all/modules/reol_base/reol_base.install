@@ -333,3 +333,10 @@ function reol_base_update_7126() {
 function reol_base_update_7127() {
   module_enable(['reol_newsletter'], TRUE);
 }
+
+/**
+ * Enable reol_search module.
+ */
+function reol_base_update_7128() {
+  module_enable(['reol_search'], TRUE);
+}
