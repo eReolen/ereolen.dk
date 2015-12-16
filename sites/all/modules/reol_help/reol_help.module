@@ -37,5 +37,22 @@ function reol_help_preprocess_faq_category_new_page(&$variables) {
   // category_depth = 0 even when on the page for a level down, but
   // display_header will be false at that point. So if we are at something lower
   // than level 0 or display_header is disabled.
-  $variables['first_level'] = $variables['category_depth'] > 0 || !$variables['display_header'];
+  $variables['first_level'] = $variables['category_depth'] == 0 && $variables['display_header'];
+
+  // Remove weirdly formatted description, and replace with regular one.
+  $variables['description'] = $variables['term']->description;
+
+  // Extract the real title, instead of linked one.
+  $variables['title'] = $variables['term']->name;
+
+  // Extract the link for the faq-page.
+  $variables['link'] = url('faq-page/' . $variables['term']->tid);
+
+  // Stuff for first-level:
+  if ($variables['first_level']) {
+    // Get the image for the category, if defined.
+    if (!empty($variables['term']->field_image[LANGUAGE_NONE][0])) {
+      $variables['image'] = image_style_url('reol_faq_category_image', $variables['term']->field_image[LANGUAGE_NONE][0]['uri']);
+    }
+  }
 }

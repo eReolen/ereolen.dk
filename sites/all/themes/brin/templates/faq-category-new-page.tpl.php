@@ -49,27 +49,31 @@
 <div class="faq-category-group">
   <!-- category header with title, link, image, description, and count of
   questions inside -->
-  <div <?php if ($first_level) : ?>class="faq-qa-header"<?php endif; ?>>
-  <?php if ($display_header): ?>
-    <h3 class="faq-header">
-    <?php print $term_image; ?>
-    <?php print $header_title; ?>
-    <?php if ($display_faq_count): ?>
-      (<?php print $question_count; ?>)
+  <a href="<?php print $link; ?>">
+    <?php if ($first_level) : ?>
+      <div class="faq-qa-header">
+        <div class="faq-category-image"><img src="<?php print $image; ?>" width="112" height="112" /></div>
+        <h3 class="faq-header">
+          <?php print $title; ?>
+          <?php if ($display_faq_count): ?>
+            (<?php print $question_count; ?>)
+          <?php endif; ?>
+        </h3>
+
+
+        <?php if (!empty($description)): ?>
+          <div class="faq-qa-description"><?php print $description ?></div>
+        <?php endif; ?>
+      </div> <!-- Close div: faq-qa-header -->
+    <?php elseif ($category_depth > 0) : ?>
+      <h3 class="faq-header">
+          <?php print $title; ?>
+          <?php if ($display_faq_count): ?>
+            (<?php print $question_count; ?>)
+          <?php endif; ?>
+      </h3>
     <?php endif; ?>
-    </h3>
-
-  <?php else: ?>
-    <?php print $term_image; ?>
-  <?php endif; ?>
-
-  <?php if (!empty($description)): ?>
-    <div class="faq-qa-description"><?php print $description ?></div>
-  <?php endif; ?>
-  <?php if (!empty($term_image)): ?>
-    <div class="clear-block"></div>
-  <?php endif; ?>
-  </div> <!-- Close div: faq-qa-header -->
+  </a>
 
   <!-- list subcategories, with title, link, description, count -->
   <?php if ($category_depth > 0 || !$display_header) : ?>
