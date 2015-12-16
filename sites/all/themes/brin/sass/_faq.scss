@@ -1,14 +1,16 @@
-/* Styles for the first-level FAQ-page. */
-.faq-page {
-  padding: 10px;
-  background: white;
-
+.faq-page, .faq-category-page {
   a {
     color: $text-color;
     &:hover {
       text-decoration: none;
     }
   }
+}
+
+/* Styles for the first-level FAQ-page. */
+.faq-page {
+  padding: 10px;
+  background: white;
 
   .faq-questions {
     text-align: center;
@@ -22,6 +24,47 @@
 
       .faq-category-image {
         margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+/* Styles for the second-level FAQ-category page. */
+.faq-category-page {
+  .faq-categories .faq-category > .faq-category-group {
+    > a {
+      display: block;
+      border-bottom: 1px solid $text-header-color;
+      position: relative;
+      margin-bottom: 10px;
+      margin-top: 20px;
+
+      &:after {
+        content: ">";
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        font-size: 1.5em;
+        margin-top: -0.5em;
+      }
+
+      h3 {
+        margin-left: 10px;
+      }
+    }
+
+    .faq-qa {
+      display: none;
+    }
+
+    &.open {
+      .faq-qa {
+        display: block;
+      }
+
+      > a:after {
+        content: "v";
       }
     }
   }

@@ -39,9 +39,17 @@ function reol_help_preprocess_faq_category_new_page(&$variables) {
   // We need a way to see whether or not we are at the first level. Do this
   // using category_depth and display_header. The template will be called with
   // category_depth = 0 even when on the page for a level down, but
-  // display_header will be false at that point. So if we are at something lower
-  // than level 0 or display_header is disabled.
+  // display_header will be false at that point. So if we are at level 0 and we
+  // are displaying the header, we are at first level.
   $variables['first_level'] = $variables['category_depth'] == 0 && $variables['display_header'];
+
+  // Second level is specified when we are at category_depth 0, and are not
+  // showing title. This is because, when showing page for second level, the
+  // first level will be processed, but without showing the header.
+  $variables['second_level'] = $variables['category_depth'] == 0 && !$variables['display_header'];
+
+  // For now, we support those two levels, everything else is just questions.
+  $variables['questions_level'] = !$variables['first_level'] && !$variables['second_level'];
 
   // Remove weirdly formatted description, and replace with regular one.
   $variables['description'] = $variables['term']->description;
@@ -58,5 +66,9 @@ function reol_help_preprocess_faq_category_new_page(&$variables) {
     if (!empty($variables['term']->field_image[LANGUAGE_NONE][0])) {
       $variables['image'] = image_style_url('reol_faq_category_image', $variables['term']->field_image[LANGUAGE_NONE][0]['uri']);
     }
+  }
+  // Stuff for second level.
+  else {
+    drupal_add_js(drupal_get_path('module', 'reol_help') . '/js/faq-category-page.js');
   }
 }

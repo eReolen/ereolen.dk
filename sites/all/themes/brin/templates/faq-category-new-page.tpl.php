@@ -76,38 +76,22 @@
   </a>
 
   <!-- list subcategories, with title, link, description, count -->
-  <?php if ($category_depth > 0 || !$display_header) : ?>
-    <?php if (!empty($subcat_list)): ?>
-      <div class="item-list">
-      <<?php print $subcat_list_style; ?> class="faq-category-list">
-      <?php foreach ($subcat_list as $i => $subcat): ?>
-        <li>
-        <?php print $subcat['link']; ?>
-        <?php if ($display_faq_count): ?>
-          (<?php print $subcat['count']; ?>)
-        <?php endif; ?>
-        <?php if (!empty($subcat['description'])): ?>
-        <div class="faq-qa-description"><?php print $subcat['description']; ?></div>
-        <?php endif; ?>
-        <div class="clear-block"></div>
-        </li>
-      <?php endforeach; ?>
-      </<?php print $subcat_list_style; ?>>
-    </div> <!-- Close div: item-list -->
-    <?php endif; ?>
+  <?php if ($second_level) : ?>
+    <div class="faq-categories">
 
-    <div class="<?php print $container_class; ?>">
+      <!-- include subcategories -->
+      <?php if (count($subcat_body_list)): ?>
+        <?php foreach ($subcat_body_list as $i => $subcat_html): ?>
+          <div class="faq-category"><?php print $subcat_html; ?></div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+  <?php endif; ?>
 
-    <!-- include subcategories -->
-    <?php if (count($subcat_body_list)): ?>
-      <?php foreach ($subcat_body_list as $i => $subcat_html): ?>
-        <div class="faq-category-indent"><?php print $subcat_html; ?></div>
-      <?php endforeach; ?>
-    <?php endif; ?>
-
+  <?php if ($questions_level) : ?>
     <!-- list questions (in title link) and answers (in body) -->
     <?php if (!empty($question_list)): ?>
-      <div class="item-list">
+      <div class="item-list faq-qa">
       <<?php print $question_list_style; ?> class="faq-category-list">
       <?php foreach ($question_list as $i => $question_link): ?>
         <li>
@@ -117,6 +101,5 @@
       </<?php print $question_list_style; ?>>
     </div> <!-- Close div: item-list -->
     <?php endif; ?>
-    </div> <!-- Close div: faq-qa / faq-qa-hide -->
   <?php endif; ?>
 </div> <!-- Close div: faq-category-group -->
