@@ -12,6 +12,14 @@ function reol_help_pm_existing_pages_info() {
 
   $pm_existing_page = new stdClass();
   $pm_existing_page->api_version = 1;
+  $pm_existing_page->name = 'faq_category_page';
+  $pm_existing_page->label = 'FAQ category page';
+  $pm_existing_page->context = '';
+  $pm_existing_page->paths = 'faq-page/%';
+  $export['faq_category_page'] = $pm_existing_page;
+
+  $pm_existing_page = new stdClass();
+  $pm_existing_page->api_version = 1;
   $pm_existing_page->name = 'faq_page';
   $pm_existing_page->label = 'FAQ page';
   $pm_existing_page->context = '';
