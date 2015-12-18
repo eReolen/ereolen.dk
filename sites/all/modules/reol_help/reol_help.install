@@ -10,7 +10,7 @@
 function reol_help_update_7001() {
   // Category settings.
   variable_set('faq_use_categories', TRUE);
-  variable_set('faq_count', TRUE);
+  variable_set('faq_count', FALSE);
   variable_set('faq_hide_child_terms', TRUE);
   variable_set('faq_category_display', 'hide_qa');
 
