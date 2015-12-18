@@ -68,7 +68,29 @@ function reol_help_preprocess_faq_category_new_page(&$variables) {
     }
   }
   // Stuff for second level.
-  else {
+  elseif ($variables['second_level']) {
     drupal_add_js(drupal_get_path('module', 'reol_help') . '/js/faq-category-page.js');
+
+    $variables['category_title'] = reol_help_get_text_field_value($variables['term'], 'field_page_title');
+    $variables['category_lead'] = reol_help_get_text_field_value($variables['term'], 'field_ding_page_lead');
+    $variables['category_body'] = reol_help_get_text_field_value($variables['term'], 'field_ding_page_body');
   }
+}
+
+/**
+ * Get the value of a text field, on an entity.
+ */
+function reol_help_get_text_field_value($entity, $field_name, $default = '') {
+  if (!empty($entity->{$field_name}[LANGUAGE_NONE][0]['value'])) {
+    return $entity->{$field_name}[LANGUAGE_NONE][0]['value'];
+  }
+
+  return $default;
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function reol_help_ctools_plugin_directory($owner, $plugin_type) {
+  return 'plugins/' . $plugin_type;
 }

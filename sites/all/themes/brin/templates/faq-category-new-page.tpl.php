@@ -78,6 +78,15 @@
   <!-- list subcategories, with title, link, description, count -->
   <?php if ($second_level) : ?>
     <div class="faq-categories">
+    <h2 class="faq-category-title pane-title">
+      <?php echo $category_title; ?>
+    </h2>
+    <div class="faq-category-lead page-lead">
+      <?php echo $category_lead; ?>
+    </div>
+    <div class="faq-category-body">
+      <?php echo $category_body; ?>
+    </div>
 
       <!-- include subcategories -->
       <?php if (count($subcat_body_list)): ?>
