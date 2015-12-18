@@ -473,7 +473,7 @@ class WorkflowTransition extends Entity {
    *   The workflow for this Transition.
    */
   public function getWorkflow() {
-    $state = workflow_state_load_single($this->new_sid);
+    $state = workflow_state_load_single($this->new_sid ? $this->new_sid : $this->old_sid);
     $workflow = workflow_load($state->wid);
     return $workflow;
   }

@@ -1,0 +1,9 @@
+patches:
+  -
+    patch: 'http://www.drupal.org/files/issues/features_import-2484297-10.patch'
+    home: 'https://www.drupal.org/node/2484297'
+    reason: 'Features import / revert broken in 2.5+.'
+  -
+    patch: 'https://www.drupal.org/files/issues/workflow-php_fatal_error_call-2499193-7-2.5.patch'
+    home: 'https://www.drupal.org/node/2499193'
+    reason: 'Prevent fatal errors on cron when using Scheduler.'
