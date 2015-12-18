@@ -1,0 +1,5 @@
+patches:
+  -
+    patch: ../../../patches/change-ding_news-to-article.patch
+    home: '-'
+    reason: 'Change ding_news content-type to article.'
