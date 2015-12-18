@@ -326,10 +326,3 @@ function reol_base_update_7125() {
 function reol_base_update_7126() {
   module_enable(['reol_search'], TRUE);
 }
-
-/**
- * Enable required modules for BPI.
- */
-function reol_base_update_7127() {
-  module_enable(['admin_views', 'workflow', 'workflow_rules', 'workflow_views', 'workflowfield'], TRUE);
-}
