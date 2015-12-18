@@ -89,6 +89,8 @@ $handler->display->display_options['style_options']['info'] = array(
     'empty_column' => 0,
   ),
   'stamp' => array(
+    'sortable' => 1,
+    'default_sort_order' => 'asc',
     'align' => '',
     'separator' => '',
     'empty_column' => 0,
@@ -109,7 +111,7 @@ $handler->display->display_options['style_options']['info'] = array(
   ),
   'workflow_node' => array(
     'align' => '',
-    'separator' => '<br>',
+    'separator' => '<br />',
     'empty_column' => 0,
   ),
   'edit_comment' => array(
@@ -123,7 +125,7 @@ $handler->display->display_options['style_options']['sticky'] = TRUE;
 $handler->display->display_options['relationships']['uid_3']['id'] = 'uid_3';
 $handler->display->display_options['relationships']['uid_3']['table'] = 'node';
 $handler->display->display_options['relationships']['uid_3']['field'] = 'uid';
-/* Relationship: Workflow current: User */
+/* Relationship: Workflow current: Current user */
 $handler->display->display_options['relationships']['uid_1']['id'] = 'uid_1';
 $handler->display->display_options['relationships']['uid_1']['table'] = 'workflow_node_current';
 $handler->display->display_options['relationships']['uid_1']['field'] = 'uid';
@@ -147,13 +149,13 @@ $handler->display->display_options['fields']['name']['table'] = 'users';
 $handler->display->display_options['fields']['name']['field'] = 'name';
 $handler->display->display_options['fields']['name']['relationship'] = 'uid_3';
 $handler->display->display_options['fields']['name']['label'] = 'Author';
-/* Field: Workflow current: Transition ID */
+/* Field: Workflow current: Workflow executed transition ID */
 $handler->display->display_options['fields']['hid_1']['id'] = 'hid_1';
 $handler->display->display_options['fields']['hid_1']['table'] = 'workflow_node_current';
 $handler->display->display_options['fields']['hid_1']['field'] = 'hid';
 $handler->display->display_options['fields']['hid_1']['label'] = 'hid';
 $handler->display->display_options['fields']['hid_1']['exclude'] = TRUE;
-/* Field: Workflow current: New state name */
+/* Field: Workflow current: Current state */
 $handler->display->display_options['fields']['sid']['id'] = 'sid';
 $handler->display->display_options['fields']['sid']['table'] = 'workflow_node_current';
 $handler->display->display_options['fields']['sid']['field'] = 'sid';
@@ -169,10 +171,11 @@ $handler->display->display_options['fields']['name_1']['table'] = 'users';
 $handler->display->display_options['fields']['name_1']['field'] = 'name';
 $handler->display->display_options['fields']['name_1']['relationship'] = 'uid_1';
 $handler->display->display_options['fields']['name_1']['label'] = 'By';
-/* Field: Workflow current: Comment */
+/* Field: Workflow current: Current comment */
 $handler->display->display_options['fields']['comment']['id'] = 'comment';
 $handler->display->display_options['fields']['comment']['table'] = 'workflow_node_current';
 $handler->display->display_options['fields']['comment']['field'] = 'comment';
+$handler->display->display_options['fields']['comment']['label'] = 'Comment';
 /* Field: Content: Workflow link */
 $handler->display->display_options['fields']['workflow_node']['id'] = 'workflow_node';
 $handler->display->display_options['fields']['workflow_node']['table'] = 'views_entity_node';
@@ -202,7 +205,7 @@ $handler->display->display_options['filters']['type']['expose']['remember'] = TR
 $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
   2 => '2',
 );
-/* Filter criterion: Workflow current: New state name */
+/* Filter criterion: Workflow current: Current state */
 $handler->display->display_options['filters']['sid']['id'] = 'sid';
 $handler->display->display_options['filters']['sid']['table'] = 'workflow_node_current';
 $handler->display->display_options['filters']['sid']['field'] = 'sid';
@@ -259,113 +262,6 @@ $handler = $view->new_display('page', 'Pending', 'page_2');
 $handler->display->display_options['defaults']['title'] = FALSE;
 $handler->display->display_options['title'] = 'Workflow pending state changes';
 $handler->display->display_options['display_description'] = 'Scheduled transitions';
-$handler->display->display_options['defaults']['style_plugin'] = FALSE;
-$handler->display->display_options['style_plugin'] = 'table';
-$handler->display->display_options['style_options']['columns'] = array(
-  'nid_1' => 'nid_1',
-  'title' => 'title',
-  'nid' => 'nid',
-  'entity_type' => 'entity_type',
-  'type' => 'type',
-  'field_name' => 'field_name',
-  'language' => 'language',
-  'scheduled' => 'scheduled',
-  'old_sid' => 'old_sid',
-  'sid' => 'sid',
-  'uid' => 'uid',
-  'comment' => 'comment',
-);
-$handler->display->display_options['style_options']['default'] = '-1';
-$handler->display->display_options['style_options']['info'] = array(
-  'nid_1' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'title' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'nid' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'entity_type' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'type' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'field_name' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'language' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'scheduled' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'old_sid' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'sid' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'uid' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'comment' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-);
-$handler->display->display_options['style_options']['sticky'] = TRUE;
-$handler->display->display_options['defaults']['style_options'] = FALSE;
-$handler->display->display_options['defaults']['row_plugin'] = FALSE;
-$handler->display->display_options['defaults']['row_options'] = FALSE;
 $handler->display->display_options['defaults']['relationships'] = FALSE;
 $handler->display->display_options['defaults']['fields'] = FALSE;
 /* Field: Content: Nid */
@@ -409,25 +305,26 @@ $handler->display->display_options['fields']['scheduled']['id'] = 'scheduled';
 $handler->display->display_options['fields']['scheduled']['table'] = 'workflow_scheduled_transition';
 $handler->display->display_options['fields']['scheduled']['field'] = 'scheduled';
 $handler->display->display_options['fields']['scheduled']['date_format'] = 'short';
-/* Field: Workflow scheduled: Current state Name */
+/* Field: Workflow scheduled: Current state */
 $handler->display->display_options['fields']['old_sid']['id'] = 'old_sid';
 $handler->display->display_options['fields']['old_sid']['table'] = 'workflow_scheduled_transition';
 $handler->display->display_options['fields']['old_sid']['field'] = 'old_sid';
 $handler->display->display_options['fields']['old_sid']['label'] = 'From';
-/* Field: Workflow scheduled: Scheduled state Name */
+/* Field: Workflow scheduled: Scheduled state */
 $handler->display->display_options['fields']['sid']['id'] = 'sid';
 $handler->display->display_options['fields']['sid']['table'] = 'workflow_scheduled_transition';
 $handler->display->display_options['fields']['sid']['field'] = 'sid';
 $handler->display->display_options['fields']['sid']['label'] = 'To';
-/* Field: Workflow scheduled: User */
+/* Field: Workflow scheduled: Scheduling user */
 $handler->display->display_options['fields']['uid']['id'] = 'uid';
 $handler->display->display_options['fields']['uid']['table'] = 'workflow_scheduled_transition';
 $handler->display->display_options['fields']['uid']['field'] = 'uid';
 $handler->display->display_options['fields']['uid']['label'] = 'By';
-/* Field: Workflow scheduled: Comment */
+/* Field: Workflow scheduled: Scheduled comment */
 $handler->display->display_options['fields']['comment']['id'] = 'comment';
 $handler->display->display_options['fields']['comment']['table'] = 'workflow_scheduled_transition';
 $handler->display->display_options['fields']['comment']['field'] = 'comment';
+$handler->display->display_options['fields']['comment']['label'] = 'Comment';
 $handler->display->display_options['defaults']['sorts'] = FALSE;
 /* Sort criterion: Workflow scheduled: Scheduled time */
 $handler->display->display_options['sorts']['scheduled']['id'] = 'scheduled';
@@ -464,143 +361,6 @@ $handler->display->display_options['menu']['context_only_inline'] = 0;
 /* Display: History */
 $handler = $view->new_display('page', 'History', 'page_4');
 $handler->display->display_options['display_description'] = 'A list of all state changes.';
-$handler->display->display_options['defaults']['style_plugin'] = FALSE;
-$handler->display->display_options['style_plugin'] = 'table';
-$handler->display->display_options['style_options']['columns'] = array(
-  'nid' => 'nid',
-  'title' => 'title',
-  'type' => 'type',
-  'name' => 'name',
-  'nid_1' => 'nid_1',
-  'revision_id' => 'revision_id',
-  'entity_type' => 'entity_type',
-  'field_name' => 'field_name',
-  'language' => 'language',
-  'delta' => 'delta',
-  'hid' => 'hid',
-  'old_sid' => 'old_sid',
-  'sid_1' => 'sid_1',
-  'stamp_1' => 'stamp_1',
-  'uid' => 'uid',
-  'comment_1' => 'comment_1',
-);
-$handler->display->display_options['style_options']['default'] = '-1';
-$handler->display->display_options['style_options']['info'] = array(
-  'nid' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'title' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'type' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'name' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'nid_1' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'revision_id' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'entity_type' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'field_name' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'language' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'delta' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'hid' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'old_sid' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'sid_1' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'stamp_1' => array(
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'uid' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-  'comment_1' => array(
-    'sortable' => 1,
-    'default_sort_order' => 'asc',
-    'align' => '',
-    'separator' => '',
-    'empty_column' => 0,
-  ),
-);
-$handler->display->display_options['style_options']['sticky'] = TRUE;
-$handler->display->display_options['defaults']['style_options'] = FALSE;
-$handler->display->display_options['defaults']['row_plugin'] = FALSE;
-$handler->display->display_options['defaults']['row_options'] = FALSE;
 $handler->display->display_options['defaults']['fields'] = FALSE;
 /* Field: Content: Nid */
 $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -654,18 +414,18 @@ $handler->display->display_options['fields']['delta']['id'] = 'delta';
 $handler->display->display_options['fields']['delta']['table'] = 'workflow_node_history';
 $handler->display->display_options['fields']['delta']['field'] = 'delta';
 $handler->display->display_options['fields']['delta']['exclude'] = TRUE;
-/* Field: Workflow history: Transition ID */
+/* Field: Workflow history: Workflow executed transition ID */
 $handler->display->display_options['fields']['hid']['id'] = 'hid';
 $handler->display->display_options['fields']['hid']['table'] = 'workflow_node_history';
 $handler->display->display_options['fields']['hid']['field'] = 'hid';
 $handler->display->display_options['fields']['hid']['label'] = 'hid';
 $handler->display->display_options['fields']['hid']['exclude'] = TRUE;
-/* Field: Workflow history: Old state name */
+/* Field: Workflow history: Old state */
 $handler->display->display_options['fields']['old_sid']['id'] = 'old_sid';
 $handler->display->display_options['fields']['old_sid']['table'] = 'workflow_node_history';
 $handler->display->display_options['fields']['old_sid']['field'] = 'old_sid';
 $handler->display->display_options['fields']['old_sid']['label'] = 'From';
-/* Field: Workflow history: New state name */
+/* Field: Workflow history: New state */
 $handler->display->display_options['fields']['sid_1']['id'] = 'sid_1';
 $handler->display->display_options['fields']['sid_1']['table'] = 'workflow_node_history';
 $handler->display->display_options['fields']['sid_1']['field'] = 'sid';
@@ -676,7 +436,7 @@ $handler->display->display_options['fields']['stamp_1']['table'] = 'workflow_nod
 $handler->display->display_options['fields']['stamp_1']['field'] = 'stamp';
 $handler->display->display_options['fields']['stamp_1']['label'] = 'Since';
 $handler->display->display_options['fields']['stamp_1']['date_format'] = 'short';
-/* Field: Workflow history: User */
+/* Field: Workflow history: Previous user */
 $handler->display->display_options['fields']['uid']['id'] = 'uid';
 $handler->display->display_options['fields']['uid']['table'] = 'workflow_node_history';
 $handler->display->display_options['fields']['uid']['field'] = 'uid';
@@ -717,7 +477,7 @@ $translatables['workflow_summary'] = array(
   t('hid'),
   t('.'),
   t(','),
-  t('New state name'),
+  t('Current state'),
   t('Since'),
   t('By'),
   t('Comment'),
@@ -725,7 +485,6 @@ $translatables['workflow_summary'] = array(
   t('view history'),
   t('Edit comment'),
   t('Content Type'),
-  t('Current state'),
   t('Summary'),
   t('A list of all executed transitions'),
   t('My content'),

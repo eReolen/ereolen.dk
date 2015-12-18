@@ -12,6 +12,10 @@ class EntityWorkflowUIController extends EntityDefaultUIController {
   public function hook_menu() {
     $items = parent::hook_menu();
 
+    // Workflow is now an exportable entity. But the 'Import' menu item is
+    // still broken. We show it, but it requires #1967794 before it works.
+    // unset($items['admin/config/workflow/workflow/import']);
+
     // Set this on the object so classes that extend hook_menu() can use it.
     $id_count = count(explode('/', $this->path));
     $wildcard = isset($this->entityInfo['admin ui']['menu wildcard']) ? $this->entityInfo['admin ui']['menu wildcard'] : '%entity_object';
@@ -30,7 +34,7 @@ class EntityWorkflowUIController extends EntityDefaultUIController {
     $items[$this->path . '/manage/' . $wildcard . '/states'] = $item + array(
       'file' => 'workflow_admin_ui/workflow_admin_ui.page.states.inc',
       'title' => 'States',
-      'weight' => '11',
+      'weight' => '1',
       'page callback' => 'drupal_get_form',
       'page arguments' => array('workflow_admin_ui_states_form', $id_count + 1, $id_count + 2),
     );
@@ -38,7 +42,7 @@ class EntityWorkflowUIController extends EntityDefaultUIController {
     $items[$this->path . '/manage/' . $wildcard . '/transitions'] = $item + array(
       'file' => 'workflow_admin_ui/workflow_admin_ui.page.transitions.inc',
       'title' => 'Transitions',
-      'weight' => '12',
+      'weight' => '2',
       'page callback' => 'drupal_get_form',
       'page arguments' => array('workflow_admin_ui_transitions_form', $id_count + 1, $id_count + 2),
     );
@@ -46,7 +50,7 @@ class EntityWorkflowUIController extends EntityDefaultUIController {
     $items[$this->path . '/manage/' . $wildcard . '/labels'] = $item + array(
       'file' => 'workflow_admin_ui/workflow_admin_ui.page.labels.inc',
       'title' => 'Labels',
-      'weight' => '13',
+      'weight' => '3',
       'page callback' => 'drupal_get_form',
       'page arguments' => array('workflow_admin_ui_labels_form', $id_count + 1, $id_count + 2),
     );
@@ -54,7 +58,7 @@ class EntityWorkflowUIController extends EntityDefaultUIController {
     $items[$this->path . '/manage/' . $wildcard . '/permissions'] = $item + array(
       'file' => 'workflow_admin_ui/workflow_admin_ui.page.permissions.inc',
       'title' => 'Permission summary',
-      'weight' => '14',
+      'weight' => '4',
       'page callback' => 'workflow_admin_ui_view_permissions_form',
       'page arguments' => array($id_count + 1, $id_count + 2),
       // @todo: convert to drupal_get_form('workflow_admin_ui_view_permissions_form');

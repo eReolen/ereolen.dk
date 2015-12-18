@@ -8,11 +8,8 @@
 /**
  * View workflow permissions by role.
  *
- * @param object $workflow
+ * @param Workflow $workflow
  *   The workflow object.
- * @param $op (optional)
- *
- * @return string
  */
 function workflow_admin_ui_view_permissions_form($workflow, $op) {
   // If we don't have a workflow at this point, go back to admin page.
