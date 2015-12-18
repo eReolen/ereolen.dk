@@ -36,7 +36,6 @@
       display: block;
       border-bottom: 1px solid $text-header-color;
       position: relative;
-      margin-bottom: 10px;
       margin-top: 20px;
 
       &:after {
@@ -55,12 +54,20 @@
     }
 
     .faq-qa {
-      display: none;
+      height: 0;
+      overflow: hidden;
+      @include transition(all 0.3s ease);
+
+      a {
+        @extend a;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     &.open {
       .faq-qa {
-        display: block;
       }
 
       > a:after {

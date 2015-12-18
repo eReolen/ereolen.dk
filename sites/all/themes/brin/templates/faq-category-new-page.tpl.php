@@ -92,13 +92,15 @@
     <!-- list questions (in title link) and answers (in body) -->
     <?php if (!empty($question_list)): ?>
       <div class="item-list faq-qa">
-      <<?php print $question_list_style; ?> class="faq-category-list">
-      <?php foreach ($question_list as $i => $question_link): ?>
-        <li>
-        <?php print $question_link; ?>
-        </li>
-      <?php endforeach; ?>
-      </<?php print $question_list_style; ?>>
+        <div class="faq-qa-inner">
+          <<?php print $question_list_style; ?> class="faq-category-list">
+          <?php foreach ($question_list as $i => $question_link): ?>
+            <li>
+            <?php print $question_link; ?>
+            </li>
+          <?php endforeach; ?>
+          </<?php print $question_list_style; ?>>
+      </div>
     </div> <!-- Close div: item-list -->
     <?php endif; ?>
   <?php endif; ?>
