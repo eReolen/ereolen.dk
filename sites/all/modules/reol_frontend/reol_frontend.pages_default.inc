@@ -169,7 +169,7 @@ function reol_frontend_default_page_manager_handlers() {
   $handler->task = 'site_template';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'eReolen site template',
     'no_blocks' => 1,
@@ -524,6 +524,96 @@ function reol_frontend_default_page_manager_handlers() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['site_template_panel_context_2'] = $handler;
+
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'site_template_panel_context_3';
+  $handler->task = 'site_template';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -30;
+  $handler->conf = array(
+    'title' => 'eReolen app mode',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'app_mode',
+          'settings' => NULL,
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display();
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'bb5be69d-d59b-4c9a-8295-9046957d9713';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-0615016f-6be0-4782-a45e-6e3d23fcd679';
+    $pane->panel = 'middle';
+    $pane->type = 'pane_messages';
+    $pane->subtype = 'pane_messages';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '0615016f-6be0-4782-a45e-6e3d23fcd679';
+    $display->content['new-0615016f-6be0-4782-a45e-6e3d23fcd679'] = $pane;
+    $display->panels['middle'][0] = 'new-0615016f-6be0-4782-a45e-6e3d23fcd679';
+    $pane = new stdClass();
+    $pane->pid = 'new-3e342f33-a104-4f07-a39e-5430fa6252b3';
+    $pane->panel = 'middle';
+    $pane->type = 'page_content';
+    $pane->subtype = 'page_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => 'argument_page_content_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '3e342f33-a104-4f07-a39e-5430fa6252b3';
+    $display->content['new-3e342f33-a104-4f07-a39e-5430fa6252b3'] = $pane;
+    $display->panels['middle'][1] = 'new-3e342f33-a104-4f07-a39e-5430fa6252b3';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-3e342f33-a104-4f07-a39e-5430fa6252b3';
+  $handler->conf['display'] = $display;
+  $export['site_template_panel_context_3'] = $handler;
 
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
@@ -1191,6 +1281,31 @@ function reol_frontend_default_page_manager_pages() {
     $display->content['new-55786955-f7e6-4f41-b080-b1285000c8c8'] = $pane;
     $display->panels['highlight'][1] = 'new-55786955-f7e6-4f41-b080-b1285000c8c8';
     $pane = new stdClass();
+    $pane->pid = 'new-93ea4343-2bbe-4c49-9889-b21a20719af2';
+    $pane->panel = 'highlight';
+    $pane->type = 'block';
+    $pane->subtype = 'mailchimp_signup-newsletter_signup';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'newsletter-signup',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '93ea4343-2bbe-4c49-9889-b21a20719af2';
+    $display->content['new-93ea4343-2bbe-4c49-9889-b21a20719af2'] = $pane;
+    $display->panels['highlight'][2] = 'new-93ea4343-2bbe-4c49-9889-b21a20719af2';
+    $pane = new stdClass();
     $pane->pid = 'new-383ae229-0de9-49c6-84d9-0aeebe73f41a';
     $pane->panel = 'left';
     $pane->type = 'views_panes';
@@ -1308,6 +1423,150 @@ function reol_frontend_default_page_manager_pages() {
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['reol_frontpage'] = $page;
+
+  $page = new stdClass();
+  $page->disabled = TRUE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'user_newsletter_status';
+  $page->task = 'page';
+  $page->admin_title = 'User Newsletter status';
+  $page->admin_description = '';
+  $page->path = 'user/%user/newsletter';
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
+  $page->menu = array(
+    'type' => 'tab',
+    'title' => 'Newsletter',
+    'name' => 'user-menu',
+    'weight' => '0',
+    'parent' => array(
+      'type' => 'none',
+      'title' => '',
+      'name' => 'navigation',
+      'weight' => '0',
+    ),
+  );
+  $page->arguments = array(
+    'user' => array(
+      'id' => 1,
+      'identifier' => 'Bruger: ID',
+      'name' => 'entity_id:user',
+      'settings' => array(),
+    ),
+  );
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $handler = new stdClass();
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'page_user_newsletter_status_panel_context';
+  $handler->task = 'page';
+  $handler->subtask = 'user_newsletter_status';
+  $handler->handler = 'panel_context';
+  $handler->weight = 0;
+  $handler->conf = array(
+    'title' => 'Panel',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'body_classes_to_remove' => '',
+    'body_classes_to_add' => '',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'Profile2 type',
+        'keyword' => 'user_2',
+        'name' => 'profile2',
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(),
+  );
+  $display = new panels_display();
+  $display->layout = '25_50_25';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'left_sidebar' => NULL,
+      'main_content' => NULL,
+      'right_sidebar' => NULL,
+      'attachment_4_1' => NULL,
+      'attachment_4_2' => NULL,
+      'attachment_4_3' => NULL,
+      'attachment_4_4' => NULL,
+      'attachment_3_1' => NULL,
+      'attachment_3_2' => NULL,
+      'attachment_3_3' => NULL,
+      'attachment_2_1' => NULL,
+      'attachment_2_2' => NULL,
+      'attachment_1_1' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->uuid = 'b54a92ee-41e2-484c-b3c8-5e53be385107';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-6c1dc5b3-e888-4061-b6a3-845c8f8ddda8';
+    $pane->panel = 'left_sidebar';
+    $pane->type = 'user_menu';
+    $pane->subtype = 'user_menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'path' => '',
+      'context' => 'argument_entity_id:user_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '6c1dc5b3-e888-4061-b6a3-845c8f8ddda8';
+    $display->content['new-6c1dc5b3-e888-4061-b6a3-845c8f8ddda8'] = $pane;
+    $display->panels['left_sidebar'][0] = 'new-6c1dc5b3-e888-4061-b6a3-845c8f8ddda8';
+    $pane = new stdClass();
+    $pane->pid = 'new-8d8f03f1-14ad-4a82-845f-fefed7993b61';
+    $pane->panel = 'main_content';
+    $pane->type = 'newsletter_form';
+    $pane->subtype = 'newsletter_form';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'type' => NULL,
+      'context' => array(
+        0 => 'argument_entity_id:user_1',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '8d8f03f1-14ad-4a82-845f-fefed7993b61';
+    $display->content['new-8d8f03f1-14ad-4a82-845f-fefed7993b61'] = $pane;
+    $display->panels['main_content'][0] = 'new-8d8f03f1-14ad-4a82-845f-fefed7993b61';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-6c1dc5b3-e888-4061-b6a3-845c8f8ddda8';
+  $handler->conf['display'] = $display;
+  $page->default_handlers[$handler->name] = $handler;
+  $pages['user_newsletter_status'] = $page;
 
   return $pages;
 
