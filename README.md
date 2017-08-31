@@ -9,6 +9,8 @@ Scrutinizer, develop branch: [![Scrutinizer Code Quality](https://scrutinizer-ci
 
 ## Setup
 
-- `docker-compose up`
 - `make dump-ego` and/or `make dump-ereol` depending on your needs
-- The make file uses a `dce` command to run commands through docker. More info here: https://github.com/xendk/dce
+The make file uses a `dce` command to run commands through docker. More info here: https://github.com/xendk/dce
+- If your ssh key is not available from the container, you can run the `make dump-ego/dump-ereol` command with your local drush, like so:
+`command drush @prod sql-dump --structure-tables-list=watchdog,cache,cache_menu | sed '/Warning: Using a password on the command line interface can be insecure/d' | gzip >private/docker/db-init/ereol/100-database.sql.gz`
+- `docker-compose up`
