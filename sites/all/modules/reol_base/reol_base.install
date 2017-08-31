@@ -377,3 +377,10 @@ function reol_base_update_7132() {
 function reol_base_update_7133() {
   module_enable(['xautoload']);
 }
+
+/**
+ * Enable system_status.
+ */
+function reol_base_update_7134() {
+  module_enable(['system_status']);
+}
