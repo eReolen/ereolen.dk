@@ -3067,10 +3067,6 @@ html.js input.form-autocomplete {
   display: none;
 }
 
-.ding-carousel {
-  overflow: hidden;
-}
-
 .ding-carousel ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3086,6 +3082,32 @@ html.js input.form-autocomplete {
   -webkit-box-flex: 0;
   -ms-flex: none;
   flex: none;
+}
+
+.main-content {
+  overflow: hidden;
+}
+
+.swiper-container-free-mode .ding-carousel-item {
+  opacity: .3;
+  -webkit-transition: opacity .15s ease-in-out;
+  -o-transition: opacity .15s ease-in-out;
+  transition: opacity .15s ease-in-out;
+}
+
+.swiper-container-free-mode .group-overlay {
+  opacity: 0;
+  -webkit-transition: opacity .15s ease-in-out;
+  -o-transition: opacity .15s ease-in-out;
+  transition: opacity .15s ease-in-out;
+}
+
+.swiper-container-free-mode .swiper-slide-visible {
+  opacity: 1;
+}
+
+.swiper-container-free-mode .swiper-slide-visible .group-overlay {
+  opacity: 1;
 }
 
 .material {

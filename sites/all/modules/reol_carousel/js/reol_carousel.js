@@ -223,7 +223,7 @@
       // If its the first batch or we're near the end.
       if (tab.data('offset') === 0 ||
           (tab.data('offset') > -1 &&
-           this.progress > .8)) {
+           this.progress > .5)) {
         // Disable updates while updating.
         tab.data('updating', true);
         // Add to queue.
@@ -291,6 +291,7 @@
           freeMode: true,
           freeModeMinimumVelocity: 0.0002,
           freeModeMomentumRatio: 0.5,
+          watchSlidesVisibility: true,
           navigation: {
             nextEl: '.button-next',
             prevEl: '.button-prev',

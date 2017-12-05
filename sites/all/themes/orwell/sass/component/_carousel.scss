@@ -175,10 +175,6 @@
 }
 
 // The following has been taken from ding_carousel.css. This avoils load jumping.
-.ding-carousel {
-  // Hide the overflow of the extra wide ul below.
-  overflow: hidden;
-}
 
 .ding-carousel ul {
   display: flex;
@@ -191,4 +187,30 @@
 .ding-carousel li {
   display: inline-block;
   flex: none;
+}
+
+// Make sure that carousels don't trigger horizontal scrolling.
+.main-content {
+  overflow: hidden;
+}
+
+// Ghost and animate "outside" items.
+.swiper-container-free-mode {
+  .ding-carousel-item {
+    opacity: .3;
+    transition: opacity .15s ease-in-out;
+  }
+
+  .group-overlay {
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+  }
+
+  .swiper-slide-visible {
+    opacity: 1;
+
+    .group-overlay {
+      opacity: 1;
+    }
+  }
 }
