@@ -92,6 +92,17 @@ function ereol_article_ajax($count, $offset) {
       );
     }
 
+    // Add placeholder if there's more.
+    if ($return['offset'] > -1) {
+      $build[] = array(
+        '#type' => 'ding_carousel_item',
+        '#placeholder' => TRUE,
+        '#content' => array(
+          '#theme' => 'ereol_article_placeholder',
+        ),
+      );
+    }
+
     $return['content'] = drupal_render($build);
   }
 
