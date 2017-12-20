@@ -3063,6 +3063,12 @@ html.js input.form-autocomplete {
   }
 }
 
+.ding-carousel .article-placeholder {
+  background-image: url("../images/placeholder.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .ding-carousel .article-placeholder .article--teaser__read-more {
   display: none;
 }

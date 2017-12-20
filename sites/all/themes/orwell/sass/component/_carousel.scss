@@ -168,6 +168,10 @@
 // scss-lint:disable MergeableSelector
 // Content specific tweaks.
 .ding-carousel .article-placeholder {
+  background-image: url('../images/placeholder.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+
   // Hide the read more "link".
   .article--teaser__read-more {
     display: none;
