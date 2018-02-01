@@ -5,6 +5,9 @@ $material--teaser__margin-bottom: 1.2rem;
 .material {
   padding: 2rem 0;
   border-bottom: 1px solid $color__border-gray;
+  @include grid-media($xlarge) {
+    border: 0;
+  }
 
   @include grid-media($medium) {
     margin: 2rem 0;

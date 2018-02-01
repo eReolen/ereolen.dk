@@ -219,8 +219,8 @@ html.js input.form-autocomplete {
 // Search page.
 .page-search-ting {
   .pane-page-content {
-    @extend .page-wrapper;
-    padding: 0 2rem;
+    //@extend .page-wrapper;
+    //padding: 0 2rem;
 
     // Add some margin to the empty result page. Yes, this is really
     // the best selector I could come up with.
@@ -355,6 +355,30 @@ html.js input.form-autocomplete {
     padding: 3.75rem 0;
   }
 
+  .list {
+    @include grid-media($large) {
+      display: flex;
+      justify-content: flex-start;
+      align-items: end;
+      flex-flow: wrap;
+      margin-left: -.75rem;
+      margin-right: -.75rem;
+      margin-top: -.75rem;
+    }
+  }
+
+  .search-result {
+    width: 100%;
+
+    @include grid-media($xlarge) {
+      width: 50%;
+    }
+
+    @include grid-media($xxlarge) {
+      width: 33%;
+    }
+  }
+
   &.grid-view {
 
     .arrangement-toggles {
@@ -380,7 +404,18 @@ html.js input.form-autocomplete {
 
       @include grid-media($small) {
         width: 33.3333%;
-        padding: .75rem;
+      }
+
+      @include grid-media($large) {
+        width: 25%;
+      }
+
+      @include grid-media($xlarge) {
+        width: 20%;
+      }
+
+      @include grid-media($xxlarge) {
+        width: 16.6666%;
       }
 
       .material {
