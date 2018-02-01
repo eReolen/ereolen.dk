@@ -1046,7 +1046,6 @@ body #autocomplete li.selected {
 .branding {
   height: 5rem;
   top: 0;
-  left: 3.75rem;
   z-index: 1;
 }
 
@@ -1087,7 +1086,7 @@ body #autocomplete li.selected {
 @media all and (min-width: 49em) {
   .pane-reol-profile-link {
     left: auto;
-    right: 3.75rem;
+    right: 30px;
   }
 }
 
@@ -2272,7 +2271,7 @@ html.js input.form-autocomplete {
 .user-login a {
   font-size: 0;
   color: transparent;
-  padding: 0 1rem;
+  padding-left: 1rem;
 }
 
 .user-login__link::before {
