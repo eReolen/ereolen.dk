@@ -1864,7 +1864,8 @@ fieldset {
 
 @media all and (min-width: 49em) {
   .search-form__content {
-    max-width: 1248px;
+    max-width: 1080px;
+    width: 100%;
     position: relative;
   }
 }
@@ -1873,7 +1874,7 @@ fieldset {
   .search-form__content {
     margin-left: auto;
     margin-right: auto;
-    max-width: 1268px;
+    max-width: 1080px;
   }
 }
 
@@ -1884,7 +1885,7 @@ fieldset {
 @media all and (min-width: 49em) {
   .page-search .search-form__content {
     height: auto;
-    padding: 1.2rem;
+    padding: 1.2rem 0;
     background-color: #b81b40;
   }
 }
@@ -1902,16 +1903,17 @@ fieldset {
   content: "";
   position: absolute;
   color: #787878;
-  top: 27px;
-  left: 7px;
+  top: 29px;
+  left: 1rem;
   font-size: 1.5rem;
 }
 
 @media all and (min-width: 49em) {
   .search-form .form-item-search-block-form::before {
     top: 21px;
+    left: 0;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 }
 

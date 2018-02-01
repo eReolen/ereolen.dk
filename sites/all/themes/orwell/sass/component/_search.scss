@@ -114,7 +114,8 @@ $icon-color: #9c9c9c;
     width: 100%;
 
     @include grid-media($medium) {
-      @include content-wrapper__large;
+      @include content-wrapper-no-padding;
+      position: relative;
     }
 
     .open & {
@@ -126,7 +127,7 @@ $icon-color: #9c9c9c;
     .page-search & {
       @include grid-media($medium) {
         height: auto;
-        padding: 1.2rem;
+        padding: 1.2rem 0;
         background-color: $color__red;
       }
 
@@ -139,14 +140,15 @@ $icon-color: #9c9c9c;
       content: $icon__search;
       position: absolute;
       color: $color__font-gray;
-      top: 27px;
-      left: 7px;
+      top: 29px;
+      left: 1rem;
       font-size: 1.5rem;
 
       @include grid-media($medium) {
         top: 21px;
+        left: 0;
         color: $color__white;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
     }
   }
