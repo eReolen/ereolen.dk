@@ -16,8 +16,30 @@ relationships:
   database: "mysqldb:mysql"
 
 web:
-  document_root: "/"
-  passthru: "/index.php"
+  locations:
+    "/":
+      root: "web"
+      expires: 5m
+      allow: false
+      passthru: "/index.php"
+      rules:
+        # Allow access to common static files.
+        '\.(jpe?g|png|gif|svgz?|css|js|map|ico|bmp|eot|woff2?|otf|ttf)$':
+            allow: true
+        '^/robots\.txt$':
+            allow: true
+        '^/sitemap\.xml$':
+      allow: true
+    "/sites/default/files":
+      allow: true
+      expires: 7d
+      passthru: '/index.php'
+      root: 'web/sites/default/files'
+      scripts: false
+      rules:
+          # Provide a longer TTL (2 weeks) for aggregated CSS and JS files.
+          '^/sites/default/files/(css|js)':
+      expires: 2w
 
 disk: 2048
 
@@ -35,7 +57,7 @@ hooks:
   build: |
     cd public/sites/all/modules/contrib
     drush pm-download stage_file_proxy-7
-    
+
   deploy: |
     cd public
     drush -y --cache-clear=0 updatedb
