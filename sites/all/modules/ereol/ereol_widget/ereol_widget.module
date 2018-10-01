@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Module file for ereol_widget.
+ */
+
+use Drupal\ereol_widget\Controller\SearchController;
+
+/**
+ * Implements hook_menu().
+ */
+function ereol_widget_menu() {
+  $items['widget/search'] = [
+    'page callback' => 'ereol_widget_search',
+    'access arguments' => ['access content'],
+  ];
+
+  return $items;
+}
+
+/**
+ * Search.
+ */
+function ereol_widget_search() {
+  $controller = new SearchController();
+  $controller->search();
+}
