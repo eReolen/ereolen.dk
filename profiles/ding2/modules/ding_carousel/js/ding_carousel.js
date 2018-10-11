@@ -211,6 +211,10 @@
         item.target.slick('slickAdd', data.content);
         item.tab.data('offset', data.offset);
         item.tab.data('updating', false);
+
+        // Ensure that behaviors are attached to the new content.
+        Drupal.attachBehaviors($('.ding-carousel-item'));
+
         // Carry on processing the queue.
         running = false;
         update();

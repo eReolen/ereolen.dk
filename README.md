@@ -51,3 +51,4 @@ Add search_get_info() in search.module should include an _alter hook (https://ww
 * Fix P2 JS errors -> https://github.com/ding2/ding2/commit/00e8a6d7cff318e758bf402cdbc8491a73c50ebd.patch
 * Fix P2 JS errors -> https://github.com/ding2/ding2/pull/1035
 * Remove auto logout modeule -> remove_autologout_configuration.patch
+* Run attached behaviours as in DDB core - carousle-attach.patch
