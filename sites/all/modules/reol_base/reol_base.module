@@ -277,7 +277,7 @@ function reol_base_theme_registry_alter(&$theme_registry) {
  * minimize the number of requests to the server.
  */
 function theme_reol_base_image($variables) {
-  libraries_load('jquery.lazy');
+  libraries_load('lazysizes');
   drupal_add_js(drupal_get_path('module', 'reol_base') . '/js/reol_base.lazy.js');
 
   $attributes = $variables['attributes'];
@@ -305,21 +305,21 @@ function theme_reol_base_image($variables) {
 function reol_base_libraries_info() {
   $libraries = array();
 
-  $libraries['jquery.lazy'] = array(
-    'name' => 'jQuery image lazy loading',
-    'vendor url' => 'http://jquery.eisbehr.de/lazy/',
-    'download url' => 'https://github.com/eisbehr-/jquery.lazy/archive/master.zip',
+  $libraries['lazysizes'] = array(
+    'name' => 'Image lazy loading',
+    'vendor url' => 'https://github.com/aFarkas/lazysizes',
+    'download url' => 'https://github.com/aFarkas/lazysizes/blob/gh-pages/lazysizes.min.js',
     'version arguments' => array(
-      'file' => 'jquery.lazy.min.js',
+      'file' => 'lazysizes.min.js',
       'pattern' => '@v([0-9a-zA-Z\.-]+)@',
     ),
     'files' => array(
-      'js' => array('jquery.lazy.min.js'),
+      'js' => array('lazysizes.min.js'),
     ),
     'variants' => array(
       'non-minified' => array(
         'files' => array(
-          'js' => array('jquery.lazy.js'),
+          'js' => array('lazysizes.min.js'),
         ),
       ),
     ),
