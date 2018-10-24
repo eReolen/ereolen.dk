@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the ereol_app_feeds module.
+ */
+
+/**
+ * Migrate frontpage feed settings to hierarchical settings.
+ */
+function ereol_app_feeds_update_7101() {
+  $variable_names = [
+    'frontpage_ids',
+    'link_button_text',
+    'theme_list_max_length',
+    'identifiers_max_length',
+    'max_news_count',
+  ];
+  $group_name = 'ereol_app_feeds_frontpage';
+  $values = [];
+  foreach ($variable_names as $name) {
+    $long_name = 'ereol_app_feeds_' . $name;
+    $values[$name] = variable_get($long_name);
+    variable_del($long_name);
+  }
+
+  variable_set($group_name, $values);
+}

@@ -5,6 +5,7 @@ namespace Drupal\ereol_app_feeds\Controller;
 use Drupal\ereol_app_feeds\Feed\CategoriesFeed;
 use Drupal\ereol_app_feeds\Feed\FrontPageFeed;
 use Drupal\ereol_app_feeds\Feed\ParagraphsFeed;
+use Drupal\ereol_app_feeds\Feed\ThemesFeed;
 
 /**
  * Default controller.
@@ -16,6 +17,16 @@ class DefaultController {
    */
   public function frontpage() {
     $feed = new FrontPageFeed();
+    $data = $feed->getData();
+
+    drupal_json_output($data);
+  }
+
+  /**
+   * Render themes data.
+   */
+  public function themes() {
+    $feed = new ThemesFeed();
     $data = $feed->getData();
 
     drupal_json_output($data);

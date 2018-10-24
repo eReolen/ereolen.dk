@@ -101,7 +101,7 @@ class NodeHelper {
       return preg_match('/-basis:/', $identifier);
     });
 
-    $identifiers = array_slice($identifiers, 0, (int) variable_get('ereol_app_feeds_identifiers_max_length', 6));
+    $identifiers = array_slice($identifiers, 0, (int) ereol_app_feeds_variable_get('ereol_app_feeds_frontpage', 'identifiers_max_length', 6));
 
     return array_values($identifiers);
   }
@@ -186,6 +186,24 @@ class NodeHelper {
     $result = $query->execute();
 
     return isset($result[$entity_type][$nid]) ? node_load($nid) : NULL;
+  }
+
+  /**
+   * Map from article content type to theme type.
+   *
+   * @var array
+   */
+  private static $themeTypes = [
+    'article' => 'theme',
+    'author_portrait' => 'author_theme',
+    'news' => 'theme',
+  ];
+
+  /**
+   * Get theme type.
+   */
+  public function getThemeType($contentType) {
+    return isset(self::$themeTypes[$contentType]) ? self::$themeTypes[$contentType] : 'theme';
   }
 
 }

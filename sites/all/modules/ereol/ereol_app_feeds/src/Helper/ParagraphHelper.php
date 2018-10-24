@@ -285,7 +285,7 @@ class ParagraphHelper {
     $list = [];
     // Cf. ereol_article_get_articles().
     $query = new EntityFieldQuery();
-    $count = variable_get('ereol_app_feeds_max_news_count', 6);
+    $count = ereol_app_feeds_variable_get('ereol_app_feeds_frontpage', 'max_news_count', 6);
 
     $entityType = NodeHelper::ENTITY_TYPE_NODE;
     $query->entityCondition('entity_type', 'node')
@@ -319,7 +319,7 @@ class ParagraphHelper {
       return isset($item['identifiers']);
     }));
 
-    $list = array_slice($list, 0, (int) variable_get('ereol_app_feeds_theme_list_max_length', 6));
+    $list = array_slice($list, 0, (int) ereol_app_feeds_variable_get('ereol_app_feeds_frontpage', 'theme_list_max_length', 6));
 
     return [
       'guid' => $this->getGuid($paragraph),
@@ -330,24 +330,13 @@ class ParagraphHelper {
   }
 
   /**
-   * Map from article content type to theme type.
-   *
-   * @var array
-   */
-  private static $themeTypes = [
-    'article' => 'theme',
-    'author_portrait' => 'author_theme',
-    'news' => 'theme',
-  ];
-
-  /**
    * Get theme data.
    */
-  private function getThemeData($node) {
+  public function getThemeData($node) {
     $view = $this->nodeHelper->getFieldValue($node, 'field_image_teaser', 'value') ? 'image' : 'covers';
 
     $contentType = $this->nodeHelper->getFieldValue($node, 'field_article_type', 'value');
-    $type = isset(self::$themeTypes[$contentType]) ? self::$themeTypes[$contentType] : 'theme';
+    $type = $this->nodeHelper->getThemeType($contentType);
 
     return [
       'guid' => $node->nid,
@@ -366,7 +355,7 @@ class ParagraphHelper {
   private function getLink(\ParagraphsItemEntity $paragraph) {
     $buttonText = $this->nodeHelper->getFieldValue($paragraph, 'field_button_text', 'value');
     if (empty($buttonText)) {
-      $buttonText = variable_get('ereol_app_feeds_link_button_text', self::VALUE_NONE);
+      $buttonText = ereol_app_feeds_variable_get('ereol_app_feeds_frontpage', 'link_button_text', self::VALUE_NONE);
     }
 
     return [
