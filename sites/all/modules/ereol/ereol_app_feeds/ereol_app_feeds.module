@@ -101,15 +101,6 @@ function ereol_app_feeds_admin() {
     '#required' => TRUE,
   ];
 
-  $form[$group_name]['identifiers_max_length'] = [
-    '#type' => 'textfield',
-    '#title' => t('Max number of identifiers in lists'),
-    '#default_value' => ereol_app_feeds_variable_get($group_name, 'identifiers_max_length', 6),
-    '#element_validate' => ['element_validate_integer_positive'],
-    '#description' => t('The maximum number of identifiers in identifier lists'),
-    '#required' => TRUE,
-  ];
-
   $form[$group_name]['max_news_count'] = [
     '#type' => 'textfield',
     '#title' => t('Max number items in latest news'),

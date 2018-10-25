@@ -101,8 +101,6 @@ class NodeHelper {
       return preg_match('/-basis:/', $identifier);
     });
 
-    $identifiers = array_slice($identifiers, 0, (int) ereol_app_feeds_variable_get('ereol_app_feeds_frontpage', 'identifiers_max_length', 6));
-
     return array_values($identifiers);
   }
 

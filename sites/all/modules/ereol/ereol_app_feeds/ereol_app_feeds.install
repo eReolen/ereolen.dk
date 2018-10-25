@@ -13,7 +13,6 @@ function ereol_app_feeds_update_7101() {
     'frontpage_ids',
     'link_button_text',
     'theme_list_max_length',
-    'identifiers_max_length',
     'max_news_count',
   ];
   $group_name = 'ereol_app_feeds_frontpage';
