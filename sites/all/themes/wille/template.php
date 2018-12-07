@@ -267,6 +267,9 @@ function wille_preprocess_ting_search_carousel_cover(&$vars) {
     }
   }
 
+  // Make full ting object available.
+  $vars['object'] = ding_entity_load($cover->id);
+
   $vars['cover_classes'] = $cover_classes;
 }
 

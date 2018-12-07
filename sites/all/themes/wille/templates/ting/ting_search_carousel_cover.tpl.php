@@ -9,6 +9,9 @@
   <a href="<?php print $path; ?>" class="carousel-item-link">
 <?php endif; ?>
 <div class="carousel-item-image <?php print $cover_classes; ?>"><?php print render($image); ?></div>
+<?php if (isset($object)): ?>
+  <div class="carousel-item-language"><?php echo $object->getLanguage() ?></div>
+<?php endif ?>
 <?php if ($title): ?>
   <div class="carousel-item-title"><?php print $title; ?></div>
 <?php endif; ?>
