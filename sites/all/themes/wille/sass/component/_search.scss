@@ -706,16 +706,3 @@
     display: none;
   }
 }
-
-// @TODO: ER-267; /search/ting/phrase.titleSeries%3D%22eventyrjulekalenderen%20%22
-.view-mode-search-result {
-  .field-name-ting-details-language {
-    color: $black-medium;
-    text-decoration: none;
-    font-family: $font-regular;
-
-    .field-item::before {
-      @include icon('flag');
-    }
-  }
-}

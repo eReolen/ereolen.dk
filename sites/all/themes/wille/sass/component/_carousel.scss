@@ -308,36 +308,3 @@ $carousel-outer-padding: 0 30px;
     @include outer-container;
   }
 }
-
-// @TODO: ER-267; /search/ting/phrase.titleSeries%3D%22eventyrjulekalenderen%20%22
-.carousel-item-language {
-  color: $title-color;
-  text-decoration: none;
-  font-family: $font-regular;
-  // line-height: 20px;
-  // margin-top: 10px;
-  // margin-bottom: 5px;
-  // font-weight: bold;
-  // display: block;
-
-  .field-item::before {
-    @include icon('flag');
-  }
-}
-
-// @TODO: ER-267; / (Karruselvisning)
-.ding-carousel-item {
-  .field-name-ting-details-language {
-    color: $white;
-    text-decoration: none;
-    font-family: $font-regular;
-    // line-height: 20px;
-    // font-weight: bold;
-    // display: block;
-    // font-size: 12px;
-
-    .field-item::before {
-      @include icon('flag');
-    }
-  }
-}
