@@ -4,3 +4,47 @@
  * @file
  * Base module for ereolen for kids.
  */
+
+/**
+ * Implements hook_field_default_field_instances_alter().
+ */
+function breol_base_field_default_field_instances_alter(&$fields) {
+  if (isset($fields['ting_object-ting_object-ting_details_language'])) {
+    // Show language in "compact" view.
+    $fields['ting_object-ting_object-ting_details_language']['display']['compact'] = [
+      'label' => 'hidden',
+      'module' => 'ting_material_details',
+      'settings' => array(),
+      'type' => 'ting_details_single',
+      'weight' => 1,
+    ];
+
+    // Show language in "search_result" view (moved into group by
+    // `breol_base_field_default_field_instances_alter`, which see).
+    $fields['ting_object-ting_object-ting_details_language']['display']['search_result'] = [
+      'label' => 'hidden',
+      'module' => 'ting_material_details',
+      'settings' => array(),
+      'type' => 'ting_details_single',
+      'weight' => 2,
+    ];
+  }
+}
+
+/**
+ * Implements hook_field_group_info_alter().
+ */
+function breol_base_field_group_info_alter(&$groups) {
+  // Move group after language field.
+  if (isset($groups['group_overlay|ting_object|ting_object|compact'])) {
+    $groups['group_overlay|ting_object|ting_object|compact']->data['weight'] = 2;
+  }
+
+  // Move language into group.
+  if (isset($groups['group_ting_left_col_search|ting_object|ting_object|search_result']->data['children'])) {
+    $groups['group_ting_left_col_search|ting_object|ting_object|search_result']->data['children'] = [
+      'ting_cover',
+      'ting_details_language',
+    ];
+  }
+}
