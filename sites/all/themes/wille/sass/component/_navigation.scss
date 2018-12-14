@@ -165,6 +165,13 @@
         @include icon('search');
       }
     }
+
+    // Menu-item: "English titles".
+    &:nth-child(6) {
+      &:before {
+        @include icon('flag-en');
+      }
+    }
   }
 }
 
