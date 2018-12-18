@@ -322,3 +322,10 @@ function breol_base_update_7140() {
 function breol_base_update_7141() {
   reol_base_locale_add_translation('See all', 'Se alle');
 }
+
+/**
+ * Enable reol_widget.
+ */
+function breol_base_update_7142() {
+  module_enable(array('reol_widget'), TRUE);
+}

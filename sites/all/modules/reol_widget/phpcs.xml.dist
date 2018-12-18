@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="loop">
+  <description>PHP CodeSniffer configuration</description>
+
+  <file>reol_widget.module</file>
+  <file>src/</file>
+
+  <!-- Show progress -->
+  <arg value="p"/>
+
+  <rule ref="Drupal">
+    <exclude name="Drupal.InfoFiles.AutoAddedKeys.Version"/>
+  </rule>
+  <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+</ruleset>
