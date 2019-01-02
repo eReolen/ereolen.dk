@@ -706,3 +706,8 @@
     display: none;
   }
 }
+
+// Hide search type form until it's actually needed.
+#edit-search-type {
+  display: none;
+}
