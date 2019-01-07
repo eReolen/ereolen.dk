@@ -62,3 +62,10 @@ function ereol_base_update_7106() {
 function ereol_base_update_7107() {
   module_enable(array('reol_carousel'), TRUE);
 }
+
+/**
+ * Enable reol_widget.
+ */
+function ereol_base_update_7108() {
+  module_enable(array('reol_widget'), TRUE);
+}
